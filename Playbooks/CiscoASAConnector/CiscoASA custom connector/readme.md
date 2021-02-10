@@ -34,11 +34,11 @@ Prior using this custom connector, it should be deployed in the Resource Group w
     * Connector name: Please enter the custom connector(ex:contoso firewall connector)
     * Service Endpoint: The URL to the Cisco ASA REST API
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flaurens1984%2FAzure-Sentinel%2Ftree%2Ffeature%2FCiscoASAConnector%2FPlaybooks%2FCiscoASAConnector%2FCiscoASA%20custom%20connector%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flaurens1984%2FAzure-Sentinel%2Ffeature%2FCiscoASAConnector%2FPlaybooks%2FCiscoASAConnector%2FCiscoASA%20custom%20connector%2Fazuredeploy.json" target="_blank">
     <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
 
-<a href="https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flaurens1984%2FAzure-Sentinel%2Ftree%2Ffeature%2FCiscoASAConnector%2FPlaybooks%2FCiscoASAConnector%2FCiscoASA%20custom%20connector%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flaurens1984%2FAzure-Sentinel%2Ffeature%2FCiscoASAConnector%2FPlaybooks%2FCiscoASAConnector%2FCiscoASA%20custom%20connector%2Fazuredeploy.json" target="_blank">
    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.png"/>    
 </a>
 
