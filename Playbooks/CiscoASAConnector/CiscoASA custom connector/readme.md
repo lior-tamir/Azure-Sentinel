@@ -27,24 +27,27 @@ General info about this product and the core values of this integration. <br>
 
 ## Deployment instructions 
 
+Prior using this custom connector, it should be deployed in the Resource Group where the playbooks that will include it are located.
+<br>
+1. Deploy the Custom Connector by clicking on "Deploy to Azure" button. This will take you to deplyoing an ARM Template wizard.
+2. Fill in the required paramteres:
+    * Connector name: Please enter the custom connector(ex:contoso firewall connector)
+    * Service Endpoint: The URL to the Cisco ASA REST API
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Sentinel%2F --- path ---azuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flaurens1984%2FAzure-Sentinel%2Ftree%2Ffeature%2FCiscoASAConnector%2FPlaybooks%2FCiscoASAConnector%2FCiscoASA%20custom%20connector%2Fazuredeploy.json" target="_blank">
     <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
 
-<a href="https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Sentinel%2F --- path ---azuredeploy.json" target="_blank">
+<a href="https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flaurens1984%2FAzure-Sentinel%2Ftree%2Ffeature%2FCiscoASAConnector%2FPlaybooks%2FCiscoASAConnector%2FCiscoASA%20custom%20connector%2Fazuredeploy.json" target="_blank">
    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.png"/>    
 </a>
 
 
 <a name="authentication">
+
 ## Authentication
 This connector supports the following authentication types:
 * Basic Authentication
-* OAuth User sign in
-* Service Principal
-* API Key
-* Logic Apps gateway
 
 ###  Azure Active Directory Service principal (example)
 To use your own application with the Azure Sentinel connector, perform the following steps:
