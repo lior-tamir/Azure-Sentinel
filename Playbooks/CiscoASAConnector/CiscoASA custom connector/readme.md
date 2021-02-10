@@ -1,6 +1,6 @@
-# ConnectorName Logic Apps connector
+# Cisco ASA Logic Apps connector
 
-![ConnectorName](./CiscoASACustomConnector.png)<br>
+![Cisco ASA](./CiscoASACustomConnector.png)<br>
 ## Table of Contents
 
 1. [Overview](#overview)
