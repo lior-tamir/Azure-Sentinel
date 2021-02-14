@@ -1569,10 +1569,23 @@
       }
     },
     "NetworkObjGroupMemberPost": {
+      "required": [
+        "kind"
+      ],
       "type": "object",
       "properties": {
         "kind": {
-          "description": "One of: IPv4Address, IPv4Range, IPv4Network, IPv6Address, IPv6Range, IPv6Network, objectRef#NetworkObj",
+          "description": "One of: IPv4Address, IPv4Range, IPv4Network, IPv4FQDN, IPv6Address, IPv6Range, IPv6Network, objectRef#NetworkObj",
+          "enum": [
+            "IPv4Address",
+            "IPv4Range",
+            "IPv4Network",
+            "IPv4FQDN",
+            "IPv6Address",
+            "IPv6Range",
+            "IPv6Network",
+            "objectRef#NetworkObj"
+          ],
           "type": "string",
           "x-ms-summary": "Member kind"
         },
@@ -1589,6 +1602,11 @@
       }
     },
     "NetworkObjGroupPost": {
+      "required": [
+        "kind",
+        "members",
+        "name"
+      ],
       "type": "object",
       "properties": {
         "kind": {
@@ -1644,10 +1662,23 @@
       }
     },
     "Host": {
+      "required": [
+        "kind",
+        "value"
+      ],
       "type": "object",
       "properties": {
         "kind": {
-          "description": "IPv4Address, IPv4Range, IPv4Network, IPv4FQDN, IPv6Address, IPv6Range, IPv6Network",
+          "description": "One of: IPv4Address, IPv4Range, IPv4Network, IPv4FQDN, IPv6Address, IPv6Range, IPv6Network",
+          "enum": [
+            "IPv4Address",
+            "IPv4Range",
+            "IPv4Network",
+            "IPv4FQDN",
+            "IPv6Address",
+            "IPv6Range",
+            "IPv6Network"
+          ],
           "type": "string",
           "x-ms-summary": "Host kind"
         },
@@ -1714,6 +1745,11 @@
       }
     },
     "NetworkObjectPost": {
+      "required": [
+        "host",
+        "kind",
+        "name"
+      ],
       "type": "object",
       "properties": {
         "kind": {
