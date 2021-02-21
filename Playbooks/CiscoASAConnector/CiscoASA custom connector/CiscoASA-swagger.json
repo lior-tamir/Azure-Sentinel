@@ -1215,11 +1215,13 @@
         },
         "objectId": {
           "type": "string",
-          "x-ms-summary": "Source address objectId"
+          "x-ms-summary": "Source address objectId",
+          "x-ms-visibility": "important"
         },
         "value": {
           "type": "string",
-          "x-ms-summary": "Source address value"
+          "x-ms-summary": "Source address value",
+          "x-ms-visibility": "important"
         }
       }
     },
@@ -1252,11 +1254,13 @@
         },
         "objectId": {
           "type": "string",
-          "x-ms-summary": "Destination address objectId"
+          "x-ms-summary": "Destination address objectId",
+          "x-ms-visibility": "important"
         },
         "value": {
           "type": "string",
-          "x-ms-summary": "Destination address value"
+          "x-ms-summary": "Destination address value",
+          "x-ms-visibility": "important"
         }
       }
     },
@@ -1308,7 +1312,8 @@
         },
         "value": {
           "type": "string",
-          "x-ms-summary": "Destination service value"
+          "x-ms-summary": "Destination service value",
+          "x-ms-visibility": "important"
         }
       }
     },
@@ -1551,8 +1556,7 @@
         "destinationAddress",
         "destinationService",
         "permit",
-        "sourceAddress",
-        "sourceService"
+        "sourceAddress"
       ],
       "type": "object",
       "properties": {
