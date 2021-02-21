@@ -99,7 +99,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   }
                 ],
                 "responses": {
@@ -145,7 +149,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   }
                 ],
                 "responses": {
@@ -205,7 +213,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   }
                 ],
                 "responses": {
@@ -254,7 +266,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   },
                   {
                     "in": "body",
@@ -312,7 +328,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   }
                 ],
                 "responses": {
@@ -363,7 +383,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   }
                 ],
                 "responses": {
@@ -413,7 +437,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   }
                 ],
                 "responses": {
@@ -459,7 +487,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   }
                 ],
                 "responses": {
@@ -519,7 +551,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   }
                 ],
                 "responses": {
@@ -568,7 +604,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   },
                   {
                     "in": "body",
@@ -626,7 +666,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   }
                 ],
                 "responses": {
@@ -677,7 +721,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   }
                 ],
                 "responses": {
@@ -727,7 +775,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   }
                 ],
                 "responses": {
@@ -769,7 +821,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   },
                   {
                     "in": "body",
@@ -820,7 +876,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   }
                 ],
                 "responses": {
@@ -869,7 +929,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   },
                   {
                     "in": "body",
@@ -927,7 +991,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   }
                 ],
                 "responses": {
@@ -969,7 +1037,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   },
                   {
                     "in": "body",
@@ -1020,7 +1092,11 @@
                     "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
                     "required": true,
                     "type": "string",
-                    "default": "REST API Agent"
+                    "default": "REST API Agent",
+                    "enum": [
+                      "REST API Agent"
+                    ],
+                    "x-ms-visibility": "internal"
                   }
                 ],
                 "responses": {
@@ -1047,19 +1123,20 @@
                 "offset": {
                   "format": "int32",
                   "type": "integer",
-                  "x-ms-summary": "Range info offset"
+                  "x-ms-summary": "Offset"
                 },
                 "limit": {
                   "format": "int32",
                   "type": "integer",
-                  "x-ms-summary": "Range info limit"
+                  "x-ms-summary": "Limit"
                 },
                 "total": {
                   "format": "int32",
                   "type": "integer",
-                  "x-ms-summary": "Range info total"
+                  "x-ms-summary": "Total"
                 }
-              }
+              },
+              "x-ms-summary": "Range info"
             },
             "Interface": {
               "type": "object",
@@ -1170,153 +1247,278 @@
               }
             },
             "SourceAddress": {
+              "required": [
+                "kind"
+              ],
               "type": "object",
               "properties": {
                 "kind": {
                   "description": "One of: AnyIPAddress, IPv4Address, IPv4FQDN, IPv4Network, IPv4Range, IPv6Address, IPv6FQDN, IPv6Network, IPv6Range, SecurityName, SecurityTag, interfaceIP, objectRef#NetworkObj, objectRef#NetworkObjGroup",
+                  "enum": [
+                    "AnyIPAddress",
+                    "IPv4Address",
+                    "IPv4FQDN",
+                    "IPv4Network",
+                    "IPv4Range",
+                    "IPv6Address",
+                    "IPv6FQDN",
+                    "IPv6Network",
+                    "IPv6Range",
+                    "SecurityName",
+                    "SecurityTag",
+                    "interfaceIP",
+                    "objectRef#NetworkObj",
+                    "objectRef#NetworkObjGroup"
+                  ],
                   "type": "string",
-                  "x-ms-summary": "Source address kind"
+                  "x-ms-summary": "Kind"
                 },
                 "objectId": {
                   "type": "string",
-                  "x-ms-summary": "Source address objectId"
+                  "x-ms-summary": "ObjectId",
+                  "x-ms-visibility": "important"
                 },
                 "value": {
                   "type": "string",
-                  "x-ms-summary": "Source address value"
+                  "x-ms-summary": "Value",
+                  "x-ms-visibility": "important"
                 }
-              }
+              },
+              "x-ms-summary": "Source address"
             },
             "DestinationAddress": {
+              "required": [
+                "kind"
+              ],
               "type": "object",
               "properties": {
                 "kind": {
                   "description": "One of: AnyIPAddress, IPv4Address, IPv4FQDN, IPv4Network, IPv4Range, IPv6Address, IPv6FQDN, IPv6Network, IPv6Range, SecurityName, SecurityTag, interfaceIP, objectRef#NetworkObj, objectRef#NetworkObjGroup",
+                  "enum": [
+                    "AnyIPAddress",
+                    "IPv4Address",
+                    "IPv4FQDN",
+                    "IPv4Network",
+                    "IPv4Range",
+                    "IPv6Address",
+                    "IPv6FQDN",
+                    "IPv6Network",
+                    "IPv6Range",
+                    "SecurityName",
+                    "SecurityTag",
+                    "interfaceIP",
+                    "objectRef#NetworkObj",
+                    "objectRef#NetworkObjGroup"
+                  ],
                   "type": "string",
-                  "x-ms-summary": "Destination address kind"
+                  "x-ms-summary": "Kind"
                 },
                 "objectId": {
                   "type": "string",
-                  "x-ms-summary": "Destination address objectId"
+                  "x-ms-summary": "ObjectId",
+                  "x-ms-visibility": "important"
                 },
                 "value": {
                   "type": "string",
-                  "x-ms-summary": "Destination address value"
+                  "x-ms-summary": "Value",
+                  "x-ms-visibility": "important"
                 }
-              }
+              },
+              "x-ms-summary": "Destination address"
             },
             "SourceService": {
+              "required": [
+                "kind"
+              ],
               "type": "object",
               "properties": {
                 "kind": {
+                  "description": "One of: AnyService, ICMP6Service, ICMPService, NetworkProtocol, NetworkServiceGroups, NetworkServiceObjects, TcpUdpService",
+                  "enum": [
+                    "AnyService",
+                    "ICMP6Service",
+                    "ICMPService",
+                    "NetworkProtocol",
+                    "NetworkServiceGroups",
+                    "NetworkServiceObjects",
+                    "TcpUdpService"
+                  ],
                   "type": "string",
-                  "x-ms-summary": "Source service kind"
+                  "x-ms-summary": "Kind"
                 },
                 "value": {
                   "type": "string",
-                  "x-ms-summary": "Source service value"
+                  "x-ms-summary": "Value"
                 }
-              }
+              },
+              "x-ms-summary": "Source service"
             },
             "DestinationService": {
+              "required": [
+                "kind"
+              ],
               "type": "object",
               "properties": {
                 "kind": {
+                  "description": "One of: AnyService, ICMP6Service, ICMPService, NetworkProtocol, NetworkServiceGroups, NetworkServiceObjects, TcpUdpService",
+                  "enum": [
+                    "AnyService",
+                    "ICMP6Service",
+                    "ICMPService",
+                    "NetworkProtocol",
+                    "NetworkServiceGroups",
+                    "NetworkServiceObjects",
+                    "TcpUdpService"
+                  ],
                   "type": "string",
-                  "x-ms-summary": "Destination service kind"
+                  "x-ms-summary": "Kind"
                 },
                 "value": {
                   "type": "string",
-                  "x-ms-summary": "Destination service value"
+                  "x-ms-summary": "Value",
+                  "x-ms-visibility": "important"
                 }
-              }
+              },
+              "x-ms-summary": "Destination service"
             },
             "Rulelogging": {
+              "required": [
+                "logStatus"
+              ],
               "type": "object",
               "properties": {
                 "logInterval": {
                   "format": "int32",
                   "type": "integer",
-                  "x-ms-summary": "Rule logging log interval"
+                  "x-ms-summary": "Log interval"
                 },
                 "logStatus": {
                   "description": "One of: Errors, Debugging, Emergencies, Critical, Informational, Alerts, Disabled, Warnings, Notifications, Default",
+                  "enum": [
+                    "Errors",
+                    "Debugging",
+                    "Emergencies",
+                    "Critical",
+                    "Informational",
+                    "Alerts",
+                    "Disabled",
+                    "Warnings",
+                    "Notifications",
+                    "Default"
+                  ],
                   "type": "string",
-                  "x-ms-summary": "Rule logging log status"
+                  "x-ms-summary": "Log status"
                 }
-              }
+              },
+              "x-ms-summary": "Rule logging"
             },
             "DestinationSecurity": {
+              "required": [
+                "kind"
+              ],
               "type": "object",
               "properties": {
                 "kind": {
                   "description": "One of: SecurityName, SecurityTag, objectRef#SecurityObjGroup",
+                  "enum": [
+                    "SecurityName",
+                    "SecurityTag",
+                    "objectRef#SecurityObjGroup"
+                  ],
                   "type": "string",
-                  "x-ms-summary": "Destination security kind"
+                  "x-ms-summary": "Kind"
                 },
                 "objectId": {
                   "type": "string",
-                  "x-ms-summary": "Destination security objectId"
+                  "x-ms-summary": "ObjectId"
                 },
                 "value": {
                   "type": "string",
-                  "x-ms-summary": "Destination security value"
+                  "x-ms-summary": "Value"
                 }
-              }
+              },
+              "x-ms-summary": "Destination security"
             },
             "SourceSecurity": {
+              "required": [
+                "kind"
+              ],
               "type": "object",
               "properties": {
                 "kind": {
                   "description": "One of: SecurityName, SecurityTag, objectRef#SecurityObjGroup",
+                  "enum": [
+                    "SecurityName",
+                    "SecurityTag",
+                    "objectRef#SecurityObjGroup"
+                  ],
                   "type": "string",
-                  "x-ms-summary": "Source security kind"
+                  "x-ms-summary": "Kind"
                 },
                 "objectId": {
                   "type": "string",
-                  "x-ms-summary": "Source security objectId"
+                  "x-ms-summary": "ObjectId"
                 },
                 "value": {
                   "type": "string",
-                  "x-ms-summary": "Source security value"
+                  "x-ms-summary": "Value"
                 }
-              }
+              },
+              "x-ms-summary": "Source security"
             },
             "User": {
+              "required": [
+                "kind"
+              ],
               "type": "object",
               "properties": {
                 "kind": {
                   "description": "One of: AnyUser, NoneUser, objectRef#LocalUserObjGroup, objectRef#UserGroupObj, objectRef#UserObj",
+                  "enum": [
+                    "AnyUser",
+                    "NoneUser",
+                    "objectRef#LocalUserObjGroup",
+                    "objectRef#UserGroupObj",
+                    "objectRef#UserObj"
+                  ],
                   "type": "string",
-                  "x-ms-summary": "User kind"
+                  "x-ms-summary": "Kind"
                 },
                 "objectId": {
                   "type": "string",
-                  "x-ms-summary": "User objectId"
+                  "x-ms-summary": "ObjectId"
                 },
                 "value": {
                   "type": "string",
-                  "x-ms-summary": "User value"
+                  "x-ms-summary": "Value"
                 }
-              }
+              },
+              "x-ms-summary": "User"
             },
             "TimeRange": {
+              "required": [
+                "kind"
+              ],
               "type": "object",
               "properties": {
                 "kind": {
                   "description": "One of: objectRef#TimeRange",
+                  "enum": [
+                    "objectRef#TimeRange"
+                  ],
                   "type": "string",
-                  "x-ms-summary": "Time range kind"
+                  "x-ms-summary": "Kind"
                 },
                 "objectId": {
                   "type": "string",
-                  "x-ms-summary": "Time range objectId"
+                  "x-ms-summary": "OjectId"
                 },
                 "value": {
                   "type": "string",
-                  "x-ms-summary": "Time range value"
+                  "x-ms-summary": "Value"
                 }
-              }
+              },
+              "x-ms-summary": "Time range"
             },
             "ExtendedACE": {
               "type": "object",
@@ -1418,6 +1620,13 @@
               }
             },
             "ExtendedACEPost": {
+              "required": [
+                "active",
+                "destinationAddress",
+                "destinationService",
+                "permit",
+                "sourceAddress"
+              ],
               "type": "object",
               "properties": {
                 "permit": {
@@ -1672,6 +1881,9 @@
                 "kind": {
                   "description": "The kind of this resource object: object#NetworkObjGroup",
                   "default": "object#NetworkObjGroup",
+                  "enum": [
+                    "object#NetworkObjGroup"
+                  ],
                   "type": "string",
                   "x-ms-summary": "Kind"
                 },
@@ -1740,13 +1952,14 @@
                     "IPv6Network"
                   ],
                   "type": "string",
-                  "x-ms-summary": "Host kind"
+                  "x-ms-summary": "Kind"
                 },
                 "value": {
                   "type": "string",
-                  "x-ms-summary": "Host value"
+                  "x-ms-summary": "Value"
                 }
-              }
+              },
+              "x-ms-summary": "Host"
             },
             "NetworkObject": {
               "type": "object",
@@ -1815,6 +2028,9 @@
                 "kind": {
                   "description": "The kind of this resource object: object#NetworkObj",
                   "default": "object#NetworkObj",
+                  "enum": [
+                    "object#NetworkObj"
+                  ],
                   "type": "string",
                   "x-ms-summary": "Kind"
                 },
