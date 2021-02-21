@@ -39,9 +39,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           }
         ],
         "responses": {
@@ -87,9 +89,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           }
         ],
         "responses": {
@@ -149,9 +153,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           }
         ],
         "responses": {
@@ -200,9 +206,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           },
           {
             "in": "body",
@@ -260,9 +268,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           }
         ],
         "responses": {
@@ -313,9 +323,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           }
         ],
         "responses": {
@@ -365,9 +377,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           }
         ],
         "responses": {
@@ -413,9 +427,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           }
         ],
         "responses": {
@@ -475,9 +491,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           }
         ],
         "responses": {
@@ -526,9 +544,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           },
           {
             "in": "body",
@@ -586,9 +606,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           }
         ],
         "responses": {
@@ -639,9 +661,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           }
         ],
         "responses": {
@@ -691,9 +715,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           }
         ],
         "responses": {
@@ -735,9 +761,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           },
           {
             "in": "body",
@@ -788,9 +816,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           }
         ],
         "responses": {
@@ -839,9 +869,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           },
           {
             "in": "body",
@@ -899,9 +931,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           }
         ],
         "responses": {
@@ -943,9 +977,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           },
           {
             "in": "body",
@@ -996,9 +1032,11 @@
             "description": "You must include the header 'User-Agent: REST API Agent' in all API calls",
             "required": true,
             "type": "string",
+            "default": "REST API Agent",
             "enum": [
               "REST API Agent"
-            ]
+            ],
+            "x-ms-visibility": "internal"
           }
         ],
         "responses": {
@@ -1025,19 +1063,20 @@
         "offset": {
           "format": "int32",
           "type": "integer",
-          "x-ms-summary": "Range info offset"
+          "x-ms-summary": "Offset"
         },
         "limit": {
           "format": "int32",
           "type": "integer",
-          "x-ms-summary": "Range info limit"
+          "x-ms-summary": "Limit"
         },
         "total": {
           "format": "int32",
           "type": "integer",
-          "x-ms-summary": "Range info total"
+          "x-ms-summary": "Total"
         }
-      }
+      },
+      "x-ms-summary": "Range info"
     },
     "Interface": {
       "type": "object",
@@ -1768,6 +1807,7 @@
       "properties": {
         "kind": {
           "description": "The kind of this resource object: object#NetworkObjGroup",
+          "default": "object#NetworkObjGroup",
           "enum": [
             "object#NetworkObjGroup"
           ],
@@ -1839,13 +1879,14 @@
             "IPv6Network"
           ],
           "type": "string",
-          "x-ms-summary": "Host kind"
+          "x-ms-summary": "Kind"
         },
         "value": {
           "type": "string",
-          "x-ms-summary": "Host value"
+          "x-ms-summary": "Value"
         }
-      }
+      },
+      "x-ms-summary": "Host"
     },
     "NetworkObject": {
       "type": "object",
@@ -1913,6 +1954,7 @@
       "properties": {
         "kind": {
           "description": "The kind of this resource object: object#NetworkObj",
+          "default": "object#NetworkObj",
           "enum": [
             "object#NetworkObj"
           ],
