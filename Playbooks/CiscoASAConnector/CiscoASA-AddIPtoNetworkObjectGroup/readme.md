@@ -30,6 +30,7 @@ When a new Sentinel incident is created,this playbook gets triggered and perform
     * Teams ChannelId : Enter the Teams Group id to send the adaptive card
     [Refer the below link to get the channel id and group id](https://docs.microsoft.com/en-us/powershell/module/teams/get-teamchannel?view=teams-ps)
     * Cisco ASA Connector name : Enter the name of the Cisco ASA custom connector (default value:CiscoASAConnector)
+    * Network Object Group object ID : The object ID of the Network Object Group
 
 ### Post-Deployment instructions 
 #### a. Authorize connections

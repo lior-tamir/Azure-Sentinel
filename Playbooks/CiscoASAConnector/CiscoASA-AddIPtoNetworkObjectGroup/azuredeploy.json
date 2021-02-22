@@ -29,6 +29,12 @@
             "metadata": {
                 "description": "Cisco ASA Connector name"
             }
+        },
+        "Network Object Group object ID": {
+            "type": "String",
+            "metadata": {
+                "description": "Cisco ASA Connector name"
+            }
         }
     },
     "variables": {
@@ -92,6 +98,10 @@
                         "$connections": {
                             "defaultValue": {},
                             "type": "Object"
+                        },
+                        "Network Object Group object ID": {
+                            "defaultValue": "",
+                            "type": "String"
                         }
                     },
                     "staticResults": {
@@ -177,7 +187,7 @@
                                     }
                                 },
                                 "method": "get",
-                                "path": "/api/objects/networkobjectgroups/@{encodeURIComponent('TEST_GROUP')}"
+                                "path": "/api/objects/networkobjectgroups/@{encodeURIComponent(parameters('Network Object Group object ID'))}"
                             }
                         },
                         "For_each_over_IPs": {
@@ -458,7 +468,7 @@
                                                                     }
                                                                 },
                                                                 "method": "patch",
-                                                                "path": "/api/objects/networkobjectgroups/@{encodeURIComponent('TEST_GROUP')}"
+                                                                "path": "/api/objects/networkobjectgroups/@{encodeURIComponent(parameters('Network Object Group object ID'))}"
                                                             }
                                                         }
                                                     }
@@ -499,7 +509,7 @@
                                                                     }
                                                                 },
                                                                 "method": "patch",
-                                                                "path": "/api/objects/networkobjectgroups/@{encodeURIComponent('TEST_GROUP')}"
+                                                                "path": "/api/objects/networkobjectgroups/@{encodeURIComponent(parameters('Network Object Group object ID'))}"
                                                             }
                                                         }
                                                     }
@@ -676,6 +686,9 @@
                                 "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/teams')]"
                             }
                         }
+                    },
+                    "Network Object Group object ID": {
+                        "value": "[parameters('Network Object Group object ID')]"
                     }
                 }
             }
