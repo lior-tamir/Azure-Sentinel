@@ -2,34 +2,87 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "workflows_Cisco_ASAv_logic_sentinel_name": {
-            "defaultValue": "Cisco-ASAv-logic-sentinel",
-            "type": "String"
+        "Playbook Name": {
+            "defaultValue": "CiscoASA-AddIPtoNetworkObjectGroup",
+            "type": "String",
+            "metadata": {
+                "description": "Name of the Logic App/Playbook"
+            }
         },
-        "connections_azuresentinel_externalid": {
-            "defaultValue": "/subscriptions/3789cae6-49ba-4e57-9f30-0db48aed1b05/resourceGroups/cisco-ASAv/providers/Microsoft.Web/connections/azuresentinel",
-            "type": "String"
+        "Teams GroupId": {
+            "defaultValue": "TeamgroupId",
+            "type": "String",
+            "metadata": {
+                "description": "GroupId of the Team channel"
+            }
         },
-        "connections_cisco_ASAv_connector_externalid": {
-            "defaultValue": "/subscriptions/3789cae6-49ba-4e57-9f30-0db48aed1b05/resourceGroups/cisco-ASAv/providers/Microsoft.Web/connections/cisco-ASAv-connector",
-            "type": "String"
+        "Teams ChannelId": {
+            "defaultValue": "TeamChannelId",
+            "type": "String",
+            "metadata": {
+                "description": "Team ChannelId"
+            }
         },
-        "customApis_cisco_ASAv_connector_externalid": {
-            "defaultValue": "/subscriptions/3789cae6-49ba-4e57-9f30-0db48aed1b05/resourceGroups/cisco-ASAv/providers/Microsoft.Web/customApis/cisco-ASAv-connector",
-            "type": "String"
-        },
-        "connections_teams_externalid": {
-            "defaultValue": "/subscriptions/3789cae6-49ba-4e57-9f30-0db48aed1b05/resourceGroups/cisco-ASAv/providers/Microsoft.Web/connections/teams",
-            "type": "String"
+        "Cisco ASA Connector name": {
+            "defaultValue": "CiscoASAConnector",
+            "type": "String",
+            "metadata": {
+                "description": "Cisco ASA Connector name"
+            }
         }
     },
-    "variables": {},
+    "variables": {
+        "AzureSentinelConnectionName": "[concat('azuresentinel-', parameters('Playbook Name'))]",
+        "TeamsConnectionName": "[concat('teamsconnector-', parameters('Playbook Name'))]",
+        "CiscoASAConnectionName": "[concat('ciscoasaconnector-', parameters('Playbook Name'))]"
+    },
     "resources": [
+        {
+            "type": "Microsoft.Web/connections",
+            "apiVersion": "2016-06-01",
+            "name": "[variables('AzureSentinelConnectionName')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "customParameterValues": {},
+                "api": {
+                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/azuresentinel')]"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Web/connections",
+            "apiVersion": "2016-06-01",
+            "name": "[variables('TeamsConnectionName')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "customParameterValues": {},
+                "api": {
+                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/teams')]"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Web/connections",
+            "apiVersion": "2016-06-01",
+            "name": "[variables('CiscoASAConnectionName')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "customParameterValues": {},
+                "api": {
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/customApis/', parameters('Cisco ASA Connector name'))]"
+                }
+            }
+        },
         {
             "type": "Microsoft.Logic/workflows",
             "apiVersion": "2017-07-01",
-            "name": "[parameters('workflows_Cisco_ASAv_logic_sentinel_name')]",
-            "location": "westeurope",
+            "name": "[parameters('Playbook Name')]",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/connections', variables('AzureSentinelConnectionName'))]",
+                "[resourceId('Microsoft.Web/connections', variables('TeamsConnectionName'))]",
+                "[resourceId('Microsoft.Web/connections', variables('CiscoASAConnectionName'))]"
+            ],
             "properties": {
                 "state": "Enabled",
                 "definition": {
@@ -583,10 +636,10 @@
                                     "body": {
                                         "messageBody": "{\n    \"type\": \"AdaptiveCard\",\n    \"body\": [\n        {\n            \"type\": \"TextBlock\",\n            \"size\": \"Medium\",\n            \"weight\": \"Bolder\",\n            \"text\": \"Azure Sentinel alert\"\n        },\n        {\n            \"type\": \"TextBlock\",\n            \"text\": \"An alert was raised in Azure Sentinel, the details  of the alert are below.\",\n            \"wrap\": true\n        },\n        {\n            \"type\": \"FactSet\",\n            \"facts\": [\n                {\n                    \"title\": \"Title\",\n                    \"value\": \"@{triggerBody()?['object']?['properties']?['title']}\"\n                },\n                {\n                    \"title\": \"Description\",\n                    \"value\": \"@{triggerBody()?['object']?['properties']?['description']}\"\n                },\n                {\n                    \"title\": \"Severity\",\n                    \"value\": \"@{triggerBody()?['object']?['properties']?['severity']}\"\n                },\n                {\n                    \"title\": \"Alert product names\",\n                    \"value\": \"@{join(triggerBody()?['object']?['properties']?['additionalData']?['alertProductNames'], ', ')}\"\n                },\n                {\n                    \"title\": \"Incident URL\",\n                    \"value\": \"@{triggerBody()?['object']?['properties']?['incidentUrl']}\"\n                }\n            ]\n        },\n        {\n            \"type\": \"TextBlock\",\n            \"text\": \"IP Addresses in the alert:\",\n            \"wrap\": true\n        },\n        {\n            \"type\": \"Container\",\n            \"items\": @{variables('adaptiveCardIPAddressItems')}\n        }\n    ],\n    \"actions\": [\n        {\n            \"type\": \"Action.Submit\",\n            \"title\": \"Submit\"\n        }\n    ],\n    \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\",\n    \"version\": \"1.2\"\n}",
                                         "recipient": {
-                                            "channelId": "19:b976c4b202d94ed9b9e0bedd821b7064@thread.tacv2"
+                                            "channelId": "[parameters('Teams ChannelId')]"
                                         },
                                         "shouldUpdateCard": true,
-                                        "updateMessage": "Thanks for your response, it is being processed.\n"
+                                        "updateMessage": "Thanks for your response, it is being processed."
                                     },
                                     "notificationUrl": "@{listCallbackUrl()}"
                                 },
@@ -597,7 +650,7 @@
                                 },
                                 "path": "/flowbot/actions/flowcontinuation/recipienttypes/channel/$subscriptions",
                                 "queries": {
-                                    "groupId": "0ec3f88b-85af-406a-9698-ed6683f01b05"
+                                    "groupId": "[parameters('Teams GroupId')]"
                                 }
                             }
                         }
@@ -608,19 +661,19 @@
                     "$connections": {
                         "value": {
                             "azuresentinel": {
-                                "connectionId": "[parameters('connections_azuresentinel_externalid')]",
-                                "connectionName": "azuresentinel",
-                                "id": "/subscriptions/3789cae6-49ba-4e57-9f30-0db48aed1b05/providers/Microsoft.Web/locations/westeurope/managedApis/azuresentinel"
+                                "connectionId": "[resourceId('Microsoft.Web/connections', variables('AzureSentinelConnectionName'))]",
+                                "connectionName": "[variables('AzureSentinelConnectionName')]",
+                                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/azuresentinel')]"
                             },
                             "cisco-ASAv-connector": {
-                                "connectionId": "[parameters('connections_cisco_ASAv_connector_externalid')]",
-                                "connectionName": "cisco-ASAv-connector",
-                                "id": "[parameters('customApis_cisco_ASAv_connector_externalid')]"
+                                "connectionId": "[resourceId('Microsoft.Web/connections', variables('CiscoASAConnectionName'))]",
+                                "connectionName": "[variables('CiscoASAConnectionName')]",
+                                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/customApis/', parameters('Cisco ASA Connector name'))]"
                             },
                             "teams": {
-                                "connectionId": "[parameters('connections_teams_externalid')]",
-                                "connectionName": "teams",
-                                "id": "/subscriptions/3789cae6-49ba-4e57-9f30-0db48aed1b05/providers/Microsoft.Web/locations/westeurope/managedApis/teams"
+                                "connectionId": "[resourceId('Microsoft.Web/connections', variables('TeamsConnectionName'))]",
+                                "connectionName": "[variables('TeamsConnectionName')]",
+                                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/teams')]"
                             }
                         }
                     }
