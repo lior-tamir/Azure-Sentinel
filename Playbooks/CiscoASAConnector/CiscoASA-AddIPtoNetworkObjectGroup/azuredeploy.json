@@ -19,7 +19,7 @@
         "Network Object Group object ID": {
             "type": "String",
             "metadata": {
-                "description": "Cisco ASA Connector name"
+                "description": "Network Object Group object ID"
             }
         }
     },
