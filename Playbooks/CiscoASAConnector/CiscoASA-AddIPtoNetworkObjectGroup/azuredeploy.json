@@ -191,50 +191,17 @@
                                         "value": {
                                             "IPAddress": "@{items('For_each_over_IPs')?['Address']}",
                                             "controlName": "ipAddressAction@{variables('forEachIndex')}",
-                                            "existsInNetworkObjectGroup": "@variables('networkObjectGroupHasIp')"
+                                            "existsInNetworkObjectGroup": "@if(greater(length(body('Filter_Network_Object_Group_Members_for_IP_Address')), 0), true, false)"
                                         }
                                     }
                                 },
-                                "For_each_over_Network_Object_Group_Members": {
-                                    "foreach": "@body('Fetch_a_network_object_group')?['members']",
-                                    "actions": {
-                                        "If_Member_is_value_for_IP_Address": {
-                                            "actions": {
-                                                "Set_networkObjectGroupHasIp_variable_to_true": {
-                                                    "runAfter": {},
-                                                    "type": "SetVariable",
-                                                    "inputs": {
-                                                        "name": "networkObjectGroupHasIp",
-                                                        "value": true
-                                                    }
-                                                }
-                                            },
-                                            "runAfter": {},
-                                            "expression": {
-                                                "and": [
-                                                    {
-                                                        "equals": [
-                                                            "@items('For_each_over_Network_Object_Group_Members')?['kind']",
-                                                            "IPv4Address"
-                                                        ]
-                                                    },
-                                                    {
-                                                        "equals": [
-                                                            "@items('For_each_over_Network_Object_Group_Members')?['value']",
-                                                            "@items('For_each_over_IPs')?['Address']"
-                                                        ]
-                                                    }
-                                                ]
-                                            },
-                                            "type": "If"
-                                        }
-                                    },
-                                    "runAfter": {
-                                        "Set_networkObjectGroupHasIp_variable_to_false": [
-                                            "Succeeded"
-                                        ]
-                                    },
-                                    "type": "Foreach"
+                                "Filter_Network_Object_Group_Members_for_IP_Address": {
+                                    "runAfter": {},
+                                    "type": "Query",
+                                    "inputs": {
+                                        "from": "@body('Fetch_a_network_object_group')?['members']",
+                                        "where": "@and(equals(item()?['kind'], 'IPv4Address'), equals(item()?['value'], items('For_each_over_IPs')?['Address']))"
+                                    }
                                 },
                                 "If_Network_Object_Group_contains_IP": {
                                     "actions": {
@@ -285,7 +252,7 @@
                                         }
                                     },
                                     "runAfter": {
-                                        "For_each_over_Network_Object_Group_Members": [
+                                        "Filter_Network_Object_Group_Members_for_IP_Address": [
                                             "Succeeded"
                                         ]
                                     },
@@ -341,9 +308,9 @@
                                     "expression": {
                                         "and": [
                                             {
-                                                "equals": [
-                                                    "@variables('networkObjectGroupHasIp')",
-                                                    true
+                                                "greater": [
+                                                    "@length(body('Filter_Network_Object_Group_Members_for_IP_Address'))",
+                                                    0
                                                 ]
                                             }
                                         ]
@@ -360,14 +327,6 @@
                                     "inputs": {
                                         "name": "forEachIndex",
                                         "value": 1
-                                    }
-                                },
-                                "Set_networkObjectGroupHasIp_variable_to_false": {
-                                    "runAfter": {},
-                                    "type": "SetVariable",
-                                    "inputs": {
-                                        "name": "networkObjectGroupHasIp",
-                                        "value": false
                                     }
                                 }
                             },
@@ -556,7 +515,7 @@
                         },
                         "Initialize_For_Each_index_variable": {
                             "runAfter": {
-                                "Initialize_networkObjectGroupHasIp_variable": [
+                                "Initialize_Adaptive_Card_IP_Address_variable": [
                                     "Succeeded"
                                 ]
                             },
@@ -599,23 +558,6 @@
                                     {
                                         "name": "ipAddresses",
                                         "type": "array"
-                                    }
-                                ]
-                            }
-                        },
-                        "Initialize_networkObjectGroupHasIp_variable": {
-                            "runAfter": {
-                                "Initialize_Adaptive_Card_IP_Address_variable": [
-                                    "Succeeded"
-                                ]
-                            },
-                            "type": "InitializeVariable",
-                            "inputs": {
-                                "variables": [
-                                    {
-                                        "name": "networkObjectGroupHasIp",
-                                        "type": "boolean",
-                                        "value": false
                                     }
                                 ]
                             }
