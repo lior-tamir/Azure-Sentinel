@@ -158,7 +158,7 @@
                         },
                         "Fetch_a_network_object_group": {
                             "runAfter": {
-                                "Entities_-_Get_IPs": [
+                                "Initialize_Network_Object_Group_object_ID_variable": [
                                     "Succeeded"
                                 ]
                             },
@@ -173,7 +173,7 @@
                                     }
                                 },
                                 "method": "get",
-                                "path": "/api/objects/networkobjectgroups/@{encodeURIComponent(parameters('Network Object Group object ID'))}"
+                                "path": "/api/objects/networkobjectgroups/@{encodeURIComponent(variables('Network Object Group object ID'))}"
                             }
                         },
                         "For_each_over_IPs": {
@@ -413,7 +413,7 @@
                                                                     }
                                                                 },
                                                                 "method": "patch",
-                                                                "path": "/api/objects/networkobjectgroups/@{encodeURIComponent(parameters('Network Object Group object ID'))}"
+                                                                "path": "/api/objects/networkobjectgroups/@{encodeURIComponent(variables('Network Object Group object ID'))}"
                                                             }
                                                         }
                                                     }
@@ -454,7 +454,7 @@
                                                                     }
                                                                 },
                                                                 "method": "patch",
-                                                                "path": "/api/objects/networkobjectgroups/@{encodeURIComponent(parameters('Network Object Group object ID'))}"
+                                                                "path": "/api/objects/networkobjectgroups/@{encodeURIComponent(variables('Network Object Group object ID'))}"
                                                             }
                                                         }
                                                     }
@@ -526,6 +526,23 @@
                                         "name": "forEachIndex",
                                         "type": "integer",
                                         "value": 0
+                                    }
+                                ]
+                            }
+                        },
+                        "Initialize_Network_Object_Group_object_ID_variable": {
+                            "runAfter": {
+                                "Entities_-_Get_IPs": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "InitializeVariable",
+                            "inputs": {
+                                "variables": [
+                                    {
+                                        "name": "Network Object Group object ID",
+                                        "type": "string",
+                                        "value": "@parameters('Network Object Group object ID')"
                                     }
                                 ]
                             }
