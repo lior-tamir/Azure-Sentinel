@@ -9,20 +9,6 @@
                 "description": "Name of the Logic App/Playbook"
             }
         },
-        "Teams GroupId": {
-            "defaultValue": "TeamgroupId",
-            "type": "String",
-            "metadata": {
-                "description": "GroupId of the Team channel"
-            }
-        },
-        "Teams ChannelId": {
-            "defaultValue": "TeamChannelId",
-            "type": "String",
-            "metadata": {
-                "description": "Team ChannelId"
-            }
-        },
         "Cisco ASA Connector name": {
             "defaultValue": "CiscoASAConnector",
             "type": "String",
@@ -646,7 +632,7 @@
                                     "body": {
                                         "messageBody": "{\n    \"type\": \"AdaptiveCard\",\n    \"body\": [\n        {\n            \"type\": \"TextBlock\",\n            \"size\": \"Medium\",\n            \"weight\": \"Bolder\",\n            \"text\": \"Azure Sentinel alert\"\n        },\n        {\n            \"type\": \"TextBlock\",\n            \"text\": \"An alert was raised in Azure Sentinel, the details  of the alert are below.\",\n            \"wrap\": true\n        },\n        {\n            \"type\": \"FactSet\",\n            \"facts\": [\n                {\n                    \"title\": \"Title\",\n                    \"value\": \"@{triggerBody()?['object']?['properties']?['title']}\"\n                },\n                {\n                    \"title\": \"Description\",\n                    \"value\": \"@{triggerBody()?['object']?['properties']?['description']}\"\n                },\n                {\n                    \"title\": \"Severity\",\n                    \"value\": \"@{triggerBody()?['object']?['properties']?['severity']}\"\n                },\n                {\n                    \"title\": \"Alert product names\",\n                    \"value\": \"@{join(triggerBody()?['object']?['properties']?['additionalData']?['alertProductNames'], ', ')}\"\n                },\n                {\n                    \"title\": \"Incident URL\",\n                    \"value\": \"@{triggerBody()?['object']?['properties']?['incidentUrl']}\"\n                }\n            ]\n        },\n        {\n            \"type\": \"TextBlock\",\n            \"text\": \"IP Addresses in the alert:\",\n            \"wrap\": true\n        },\n        {\n            \"type\": \"Container\",\n            \"items\": @{variables('adaptiveCardIPAddressItems')}\n        }\n    ],\n    \"actions\": [\n        {\n            \"type\": \"Action.Submit\",\n            \"title\": \"Submit\"\n        }\n    ],\n    \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\",\n    \"version\": \"1.2\"\n}",
                                         "recipient": {
-                                            "channelId": "[parameters('Teams ChannelId')]"
+                                            "channelId": ""
                                         },
                                         "shouldUpdateCard": true,
                                         "updateMessage": "Thanks for your response, it is being processed."
@@ -660,7 +646,7 @@
                                 },
                                 "path": "/flowbot/actions/flowcontinuation/recipienttypes/channel/$subscriptions",
                                 "queries": {
-                                    "groupId": "[parameters('Teams GroupId')]"
+                                    "groupId": ""
                                 }
                             }
                         }

@@ -10,7 +10,7 @@ When a new Sentinel incident is created,this playbook gets triggered and perform
 
 ### Prerequisites
 1. **This playbook template is based on Azure Sentinel Incident Trigger which is currently in Private Preview (Automation Rules).** You can change the trigger to the Sentinel Alert trigger in cases you are not part of the Private Preview.
-2. Cisco ASA custom connector needs to be deployed prior to the deployment of this playbook, in the same resource group. Relevant instructions can be found in the connector doc page.
+2. Cisco ASA custom connector needs to be deployed prior to the deployment of this playbook, in the same resource group and region. Relevant instructions can be found in the connector doc page.
 3. In Cisco ASA there needs to be a Network Object Group. 
 
 ### Deployment instructions 
@@ -26,9 +26,6 @@ When a new Sentinel incident is created,this playbook gets triggered and perform
 
 2. Fill in the required paramteres:
     * Playbook Name: Enter the playbook name here (ex:CiscoASA-AddIPtoNetworkObjectGroup)
-    * Teams GroupId : Enter the Teams channel id to send the adaptive card
-    * Teams ChannelId : Enter the Teams Group id to send the adaptive card
-    [Refer the below link to get the channel id and group id](https://docs.microsoft.com/en-us/powershell/module/teams/get-teamchannel?view=teams-ps)
     * Cisco ASA Connector name : Enter the name of the Cisco ASA custom connector (default value:CiscoASAConnector)
     * Network Object Group object ID : The object ID of the Network Object Group
 
@@ -42,6 +39,14 @@ Once deployment is complete, you will need to authorize each connection.
 5.	Click Save
 6.	Repeat steps for other connections such as Teams and Cisco ASA (For authorizing the Cisco ASA API connection, the username and password needs to be provided)
 
-#### b. Configurations in Sentinel
+#### b. Select Teams channel
+The Teams channel to which the adaptive card will be posted will need to be configured.
+1. Click the Azure Logic app resource
+2. Edit the Logic App
+3. Find the 'PostToTeams' action
+4. Select a Team and Channel
+5. Save the Logic App
+
+#### c. Configurations in Sentinel
 1. In Azure sentinel analytical rules should be configured to trigger an incident with IP Entity.
 2. Configure the automation rules to trigger this playbook
