@@ -11,7 +11,7 @@ When a new Sentinel incident is created,this playbook gets triggered and perform
 ### Prerequisites
 1. **This playbook template is based on Azure Sentinel Incident Trigger which is currently in Private Preview (Automation Rules).** You can change the trigger to the Sentinel Alert trigger in cases you are not part of the Private Preview.
 2. Cisco ASA custom connector needs to be deployed prior to the deployment of this playbook, in the same resource group and region. Relevant instructions can be found in the connector doc page.
-3. In Cisco ASA there needs to be a Network Object Group. 
+3. In Cisco ASA there needs to be a Network Object Group. You can create a Network Object Group using Cisco ASDM, [Configure a Network Object Group](https://www.cisco.com/c/en/us/td/docs/security/asa/asa96/asdm76/firewall/asdm-76-firewall-config/access-objects.html#ariaid-title6), or using the CLI, [Configuring a Network Object Group](https://www.cisco.com/c/en/us/td/docs/security/asa/asa90/configuration/guide/asa_90_cli_config/acl_objects.html#86292). The Network Object Group can be blocked using an access rule, [Configure Access Rules](https://www.cisco.com/c/en/us/td/docs/security/asa/asa96/asdm76/firewall/asdm-76-firewall-config/access-rules.html#ID-2124-00000152)
 
 ### Deployment instructions 
 1. Deploy the playbook by clicking on "Depoly to Azure" button. This will take you to deplyoing an ARM Template wizard.
@@ -27,7 +27,7 @@ When a new Sentinel incident is created,this playbook gets triggered and perform
 2. Fill in the required paramteres:
     * Playbook Name: Enter the playbook name here (ex:CiscoASA-AddIPtoNetworkObjectGroup)
     * Cisco ASA Connector name : Enter the name of the Cisco ASA custom connector (default value:CiscoASAConnector)
-    * Network Object Group object ID : The object ID of the Network Object Group
+    * Network Object Group object ID : The object ID of the Network Object Group. It is the sames as the name of the created Network Object Group.
 
 ### Post-Deployment instructions 
 #### a. Authorize connections
