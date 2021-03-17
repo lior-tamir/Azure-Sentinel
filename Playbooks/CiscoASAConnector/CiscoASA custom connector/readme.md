@@ -49,7 +49,7 @@ Prior using this custom connector, it should be deployed in the Resource Group w
 <br>
 1. Deploy the Custom Connector by clicking on "Deploy to Azure" button. This will take you to deplyoing an ARM Template wizard.
 2. Fill in the required paramteres:
-    * Connector name: Please enter the custom connector(ex:contoso firewall connector)
+    * Connector name: Please enter the custom connector(ex:Cisco ASA connector)
     * Service Endpoint: The URL to the Cisco ASA REST API
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flaurens1984%2FAzure-Sentinel%2Ffeature%2FCiscoASAConnector%2FPlaybooks%2FCiscoASAConnector%2FCiscoASA%20custom%20connector%2Fazuredeploy.json" target="_blank">

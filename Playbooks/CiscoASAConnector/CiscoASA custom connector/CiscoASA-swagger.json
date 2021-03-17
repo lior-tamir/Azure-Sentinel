@@ -1989,14 +1989,14 @@
     }
   },
   "securityDefinitions": {
-    "basicAuth": {
+    "basic_auth": {
       "type": "basic",
       "description": "Basic Authorization header"
     }
   },
   "security": [
     {
-      "basicAuth": [ ]
+      "basic_auth": [ ]
     }
   ]
 }
