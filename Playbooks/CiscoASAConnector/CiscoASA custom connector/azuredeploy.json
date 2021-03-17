@@ -22,7 +22,7 @@
       "type": "Microsoft.Web/customApis",
       "apiVersion": "2016-06-01",
       "name": "[parameters('Custom Connector Name')]",
-      "location": "westeurope",
+      "location": "[resourceGroup().location]",
       "properties": {
         "connectionParameters": {
             "username": {
