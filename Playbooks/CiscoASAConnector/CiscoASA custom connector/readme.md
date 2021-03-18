@@ -44,9 +44,10 @@ General info about this product and the core values of this integration. <br>
 <a name="deployment"></a>
 
 ## Deployment instructions 
-
-Prior using this custom connector, it should be deployed in the Resource Group where the playbooks that will include it are located.
+Prior using this custom connector, it should be deployed in the Resource Group where the playbooks that will include it are located. There are two options for the custom connector, one not connecting via on-premises data gateway and one connecting via on-premises data gateway.
 <br>
+
+### Connector **not** via on-premises data gateway
 1. Deploy the Custom Connector by clicking on "Deploy to Azure" button. This will take you to deplyoing an ARM Template wizard.
 2. Fill in the required paramteres:
     * Connector name: Please enter the custom connector(ex:Cisco ASA connector)
@@ -60,6 +61,19 @@ Prior using this custom connector, it should be deployed in the Resource Group w
    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.png"/>    
 </a>
 
+### Connector via on-premises data gateway
+1. Deploy the Custom Connector by clicking on "Deploy to Azure" button. This will take you to deplyoing an ARM Template wizard.
+2. Fill in the required paramteres:
+    * Connector name: Please enter the custom connector(ex:Cisco ASA connector)
+    * Service Endpoint: The URL to the Cisco ASA REST API
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flaurens1984%2FAzure-Sentinel%2Ffeature%2FCiscoASAConnector%2FPlaybooks%2FCiscoASAConnector%2FCiscoASA%20custom%20connector%azuredeploy-gateway.json" target="_blank">
+    <img src="https://aka.ms/deploytoazurebutton"/>
+</a>
+
+<a href="https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flaurens1984%2FAzure-Sentinel%2Ffeature%2FCiscoASAConnector%2FPlaybooks%2FCiscoASAConnector%2FCiscoASA%20custom%20connector%azuredeploy-gateway.json" target="_blank">
+   <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.png"/>    
+</a>
 
 <a name="authentication"></a>
 
