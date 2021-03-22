@@ -1,117 +1,56 @@
-# ConnectorName Logic Apps connector and playbook templates
+# Cisco ASA Logic Apps connector and playbook templates
 
-![ConnectorName](./connectorName/logo.png)<br>
+![Cisco ASA](./Images/CiscoASACustomConnector.png)<br>
 
 ## Table of Contents
 
 1. [Overview](#overview)
-1. [Deploy Custom Connector + 3 Playbook templates](#deployall)
 1. [Authentication](#authentication)
 1. [Prerequisites](#prerequisites)
-1. [Deployment](#deployment)
-1. [Post Deployment Steps](#postdeployment)
 1. [References](#references)
 
 
-<a name="overview">
+<a name="overview"></a>
 
 ## Overview
-General info about this product and the core values of this integration. <br>
-It also contains 3 playbook templates, ready to quick use, that allow ...
-
-<a name="deployall">
-
-## Deploy Custom Connector + 3 Playbook templates
-This package includes:
-* Custom connector for ConnectorName
-* Three playbook templates leverage ConnectorName custom connector
-
-You can choose to deploy the whole package: connector + all three playbook templates (below buttons), or each one seperately from it's specific folder.
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Sentinel%2F --- path ---azuredeploy.json" target="_blank">
-    <img src="https://aka.ms/deploytoazurebutton"/>
-</a>
-
-<a href="https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Sentinel%2F --- path ---azuredeploy.json" target="_blank">
-   <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.png"/>    
-</a>
+Cisco Adaptive Security Appliance (ASA) Software is the core operating system for the Cisco ASA Family. It delivers enterprise-class firewall capabilities for ASA devices in an array of form factors - standalone appliances, blades, and virtual appliances - for any distributed network environment. ASA Software also integrates with other critical security technologies to deliver comprehensive solutions that meet continuously evolving security needs.<br>
+This integration allows to automate response to Azure Sentinel incidents which contain IPs. It contains the basic connector component, with which you can create your own playbooks that interact with Cisco ASA.
+It also contains 3 playbook templates, ready to quick use, that allow direct response on Cisco ASA from Microsoft Teams.
 
 
-# connectorName connector documentation 
+# Cisco ASA connector documentation 
 
-<a name="authentication">
+<a name="authentication"></a>
 
 ## Authentication
 This connector supports the following authentication types:
 * Basic Authentication
-* OAuth User sign in
-* Service Principal
-* API Key
-* Logic Apps gateway
 
-###  Azure Active Directory Service principal (example)
-To use your own application with the Azure Sentinel connector, perform the following steps:
-
-1. Register the application with Azure AD and create a service principal. [Learn how](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal).
-
-1. Get credentials (for future authentication).
-
-    In the registered application blade, get the application credentials for later signing in:
-
-    - Tenant Id: under **Overview**
-    - Client ID: under **Overview**
-    - Client secret: under **Certificates & secrets**.
-
-1. Grant permissions to ConnectorName:
-
-    - In the relevant resources of the above, go to Settings -> Access control (IAM)
-
-    - Select **Add role assignment**.
-
-    - Select the role you wish to assign to the application: **Contributor** role.
-
-    - Find the required application and save. By default, Azure AD applications aren't displayed in the available options. To find your application, search for the name and select it.
-
-1. Authenticate
-
-    In this step we use the app credentials to authenticate to the Sentinel connector in Logic Apps.
-
-    In the custome connector for ConnectorName, fill in the required parameters (can be found in the registered application blade)
-        - Tenant Id: under **Overview**
-        - Client Id: under **Overview**
-        - Client Secret: under **Certificates & secrets**
-
-<a name="prerequisites">
-
-### Prerequisites for using and deploying Custom Connector
-1. Register an AAD app and capture the ClientID, SecretKey and TenantID
-1. Playbook templates leverage VirusTotal for IP enrichment. To use this VirusTotal capabilities,generate a Virus Total API key. Refer this link [ how to generate the API Key](https://developers.virustotal.com/v3.0/reference#getting-started)
-
-<a name="deployment">
-
-### Deployment instructions 
-1. Deploy the Custom Connector and playbooks by clicking on "Deploy to Azure" button. This will take you to deplyoing an ARM Template wizard.
-2. Fill in the required parameteres:
-
-Special configutations/parameters for Playbook templates
-
-<a name="postdeployment">
-
-### Post-Deployment instructions 
-#### a. Authorize connections
-Once deployment is complete, you will need to authorize each connection. For each API connection resource:
- 1. Click edit API connection
- 1. Click Authorize
- 1. Sign in
- 1. Click Save
- 1. Repeat steps for other connection.
-
-#### b. Configurations in Azure Sentinel
-1. Enable Azure Sentinel Analytics rules that create alerts and incidents which includes the relevant entities.
-1. Configure automation rule(s) to trigger the playbooks.
+### Basic Authentication
+In Cisco ASA create a local user and allow it to use the REST API. Depending on the playbook used the user needs to be able to add members to a network object group or create access control entries, by default that requires privilege level 15.
 
 
-<a name="references">
+<a name="prerequisites"></a>
+
+### Prerequisites for using and deploying Cisco ASA Connector
+The connector needs to be able to reach the Cisco ASA REST API. A few options are:
+1. Over the internet
+1. Using Logic Apps gateway
+1. Secure tunnel between your network and Azure
+
+#### Over the internet
+You can make the Cisco ASA REST API available to the internet. You can use IP filtering to restrict access. To find the IP addresses that need access, go to your Logic App instance and go to properties. The field 'Connector outgoing IP addresses' contains the IP addresses Azure uses for your Logic App to call the connector. Logic Apps also needs to be able to validate the SSL certificate used.
+
+#### Using Logic Apps gateway
+On a server in your network install the on-premises data gateway, see [Install on-premises data gateway for Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-gateway-install).
+The server on which the data gateway is installed needs to be able to reach the Cisco ASA REST API. Also the SSL certificate used by the Cisco ASA REST API needs to be able to be validated on the server, including the certificate chain.
+When deploying the Cisco ASA connector choose the option via on-premises data gateway.
+When using the connector you will be asked to select the data gateway you want to use.
+
+#### Secure tunnel between your network and Azure
+Create an Azure Virtual Network and connect it to your on-premise network using Azure VPN, for a sample see [Sample configuration: Cisco ASA device (IKEv2/no BGP)](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-3rdparty-device-config-cisco-asa). When creating the Logic App make sure to select the option 'Associate with integration service environment'. When the Logic App is created you can connect it to the Azure Virtual Network. See (Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment [Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)](https://docs.microsoft.com/en-us/azure/logic-apps/connect-virtual-network-vnet-isolated-environment)] and [Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)](https://docs.microsoft.com/en-us/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview) for documentation.
+
+<a name="references"></a>
 
 ## Learn more
-*  [Relevant API docs](url)
+*  [Cisco ASA REST API Quick Start Guide](https://www.cisco.com/c/en/us/td/docs/security/asa/api/qsg-asa-api.html)

@@ -1,6 +1,6 @@
 # Cisco ASA Logic Apps connector
 
-![Cisco ASA](./CiscoASACustomConnector.png)<br>
+![Cisco ASA](../Images/CiscoASACustomConnector.png)<br>
 ## Table of Contents
 
 1. [Overview](#overview)
@@ -80,3 +80,6 @@ Prior using this custom connector, it should be deployed in the Resource Group w
 ## Authentication
 This connector supports the following authentication types:
 * Basic Authentication
+
+### Basic Authentication
+In Cisco ASA create a local user and allow it to use the REST API. Depending on the playbook used the user needs to be able to add members to a network object group or create access control entries, by default that requires privilege level 15.
