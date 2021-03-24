@@ -37,7 +37,7 @@ query: |
       | where IPAddress != "127.0.0.1"
       | summarize count() by IPAddress
       | where count_ >  signin_threshold
-      | summarize makelist(IPAddress);
+      | summarize make_list(IPAddress);
   //See if any of those IPs have sucessfully logged into PA VPNs during the same timeperiod
   CommonSecurityLog
       | where TimeGenerated > ago(timeframe)
@@ -54,3 +54,16 @@ query: |
       | extend Location = extract("Source region: ([^,]{2})",1, Message)
       | project TimeGenerated, Reason, SourceIP, User, ClientOS, Location, Message, DeviceName, ReceiptTime, DeviceVendor, DeviceEventClassID, Computer, FileName
       | extend AccountCustomEntity = User, IPCustomEntity = SourceIP, timestamp = TimeGenerated, HostCustomEntity = DeviceName 
+entityMappings:
+  - entityType: Account
+    fieldMappings:
+      - identifier: FullName
+        columnName: AccountCustomEntity
+  - entityType: Host
+    fieldMappings:
+      - identifier: FullName
+        columnName: HostCustomEntity
+  - entityType: IP
+    fieldMappings:
+      - identifier: Address
+        columnName: IPCustomEntity
